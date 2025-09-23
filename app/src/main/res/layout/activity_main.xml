@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#1B263B">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <EditText
+        android:id="@+id/etTicker"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Digite o ticker do ativo..."
+        android:textSize="16sp"
+        android:inputType="text"
+        android:maxLength="6"
+        android:padding="10dp"
+        android:background="@color/white"
+        android:shadowColor="@color/white"
+        android:shadowRadius="10"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:background=""
+        app:layout_constraintTop_toBottomOf="@+id/etTicker"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+            <TextView
+                android:id="@+id/tvShortName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nome curto"
+                android:textColor="#FFFFFF"
+                android:background="#2E3A59"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:padding="6dp"
+                android:layout_margin="6dp"/>
+
+            <TextView
+                android:id="@+id/tvCurrency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Moeda"
+                android:background="#2E3A59"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:padding="6dp"
+                android:layout_margin="6dp"/>
+
+            <TextView
+                android:id="@+id/tvMarketPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Preço atual"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:padding="8dp"/>
+
+            <TextView
+                android:id="@+id/tvMarketPreviousClose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fechamento anterior"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:padding="8dp"/>
+
+            <TextView
+                android:id="@+id/tvMarketChange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Variação absoluta"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:padding="8dp"/>
+
+            <TextView
+                android:id="@+id/tvMarketChangePercent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Variação %"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:padding="8dp"/>
+
+            <TextView
+                android:id="@+id/tvDayRange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Intervalo do dia"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:padding="8dp"/>
+
+            <TextView
+                android:id="@+id/tvFiftyTwoWeekRange"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Intervalo 52 semanas"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:padding="8dp"/>
+        </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
