@@ -1,4 +1,4 @@
-# Cotações de Ativos da Bolsa 📈💰  
+# Cotações de Ativos da Bolsa de Valores 📈💰  
 
 [![Kotlin](https://img.shields.io/badge/Linguagem-Kotlin-orange?logo=kotlin)](https://kotlinlang.org/)  
 [![Android Studio](https://img.shields.io/badge/IDE-Android_Studio-brightgreen?logo=android-studio)](https://developer.android.com/studio)  
