@@ -18,6 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.json.JSONObject
 import java.net.URL
+import java.util.Locale
 import javax.net.ssl.HttpsURLConnection
 
 private lateinit var tvMarketChange: TextView
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity() {
         val tvDayRange = findViewById<TextView>(R.id.tvDayRange)
         val tvFiftyTwoWeekRange = findViewById<TextView>(R.id.tvFiftyTwoWeekRange)
         val ivLogo = findViewById<ImageView>(R.id.ivLogo)
+        ivLogo.setImageResource(R.drawable.icon_app)
 
         var ticker = ""
         val token = "fVvtN4WFtkrPTVerbUHG9F"
@@ -55,7 +57,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                ticker = s.toString()
+                ticker = s.toString().uppercase(Locale.getDefault())
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -95,10 +97,13 @@ class MainActivity : AppCompatActivity() {
                                 decoderFactory(SvgDecoder.Factory())
                             }
 
+                            if (conn.responseCode != 200) {
+                                Toast.makeText(this@MainActivity, "Erro ao obter dados do ativo: verifique conexão à internet.", Toast.LENGTH_SHORT).show()
+                            }
+
                             conn.disconnect()
                         }
                     } catch (e: Exception) {
-                        Toast.makeText(this@MainActivity, "Conecte à internet para visualizar os dados do ativo.", Toast.LENGTH_SHORT).show()
                         e.printStackTrace()
                     }
                 }
