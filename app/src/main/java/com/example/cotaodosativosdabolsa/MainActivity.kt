@@ -1,5 +1,6 @@
 package com.example.cotaodosativosdabolsa
 
+import android.graphics.Color
 import android.graphics.Insets.add
 import android.os.Bundle
 import android.text.Editable
@@ -19,8 +20,14 @@ import org.json.JSONObject
 import java.net.URL
 import javax.net.ssl.HttpsURLConnection
 
-class MainActivity : AppCompatActivity() {
+private lateinit var tvMarketChange: TextView
+private lateinit var tvMarketChangePercent: TextView
 
+private var marketChange = 0.00
+
+private var marketChangePercent = 0.00
+
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
@@ -31,8 +38,8 @@ class MainActivity : AppCompatActivity() {
         val tvCurrency = findViewById<TextView>(R.id.tvCurrency)
         val tvMarketPrice = findViewById<TextView>(R.id.tvMarketPrice)
         val tvMarketPreviousClose = findViewById<TextView>(R.id.tvMarketPreviousClose)
-        val tvMarketChange = findViewById<TextView>(R.id.tvMarketChange)
-        val tvMarketChangePercent = findViewById<TextView>(R.id.tvMarketChangePercent)
+        tvMarketChange = findViewById(R.id.tvMarketChange)
+        tvMarketChangePercent = findViewById(R.id.tvMarketChangePercent)
         val tvDayRange = findViewById<TextView>(R.id.tvDayRange)
         val tvFiftyTwoWeekRange = findViewById<TextView>(R.id.tvFiftyTwoWeekRange)
         val ivLogo = findViewById<ImageView>(R.id.ivLogo)
@@ -67,8 +74,8 @@ class MainActivity : AppCompatActivity() {
                         val currency = ativo.getString("currency")
                         val marketPrice = ativo.getDouble("regularMarketPrice")
                         val marketPreviousClose = ativo.getDouble("regularMarketPreviousClose")
-                        val marketChange = ativo.getDouble("regularMarketChange")
-                        val marketChangePercent = ativo.getDouble("regularMarketChangePercent")
+                        marketChange = ativo.getDouble("regularMarketChange")
+                        marketChangePercent = ativo.getDouble("regularMarketChangePercent")
                         val dayRange = ativo.getString("regularMarketDayRange")
                         val fiftyTwoWeekRange = ativo.getString("fiftyTwoWeekRange")
                         val logoUrl = ativo.getString("logourl")
@@ -79,9 +86,10 @@ class MainActivity : AppCompatActivity() {
                             tvMarketPrice.text = "Preço atual: $currency $marketPrice"
                             tvMarketPreviousClose.text = "Fechamento anterior: $currency $marketPreviousClose"
                             tvMarketChange.text = "Variação do dia: $currency $marketChange"
-                            tvMarketChangePercent.text = "Variação (%): $marketChangePercent%"
+                            tvMarketChangePercent.text = "Variação do dia: $marketChangePercent%"
                             tvDayRange.text = "Intervalo do dia ($currency): $dayRange"
                             tvFiftyTwoWeekRange.text = "Intervalo de 52 semanas ($currency): $fiftyTwoWeekRange"
+                            changeColorVariation()
                             ivLogo.load(logoUrl) {
                                 crossfade(true)
                                 decoderFactory(SvgDecoder.Factory())
@@ -90,10 +98,21 @@ class MainActivity : AppCompatActivity() {
                             conn.disconnect()
                         }
                     } catch (e: Exception) {
+                        Toast.makeText(this@MainActivity, "Conecte à internet para visualizar os dados do ativo.", Toast.LENGTH_SHORT).show()
                         e.printStackTrace()
                     }
+                }
             }
-        }
         })
+    }
+}
+
+private fun changeColorVariation() {
+    if (marketChange > 0 && marketChangePercent > 0.00) {
+        tvMarketChange.setTextColor(Color.parseColor("#2E7D32"))
+        tvMarketChangePercent.setTextColor(Color.parseColor("#2E7D32"))
+    } else {
+        tvMarketChange.setTextColor(Color.parseColor("#C62828"))
+        tvMarketChangePercent.setTextColor(Color.parseColor("#C62828"))
     }
 }

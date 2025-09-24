@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">Cotação dos Ativos da Bolsa</string>
-    <string name="digite_o_ticker_do_ativo">Digite o ticker do ativo...</string>
+    <string name="digite_o_ticker_do_ativo">Digite o ticker.</string>
     <string name="fechamento_anterior">Fechamento anterior:</string>
     <string name="pre_o_atual">Preço atual:</string>
     <string name="varia_o_do_dia_moeda">Variação do dia (moeda):</string>
     <string name="digite_o_ticker">Digite o ticker</string>
     <string name="nome_curto">Nome curto:</string>
+    <string name="varia_o_do_dia">Variação do dia (%):</string>
+    <string name="intervalo_52_semanas_moeda">Intervalo 52 semanas (moeda):</string>
+    <string name="intervalo_do_dia_moeda">Intervalo do dia (moeda):</string>
+    <string name="moeda">Moeda:</string>
 </resources>
