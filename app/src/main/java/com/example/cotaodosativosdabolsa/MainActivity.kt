@@ -7,11 +7,11 @@ import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import coil.ImageLoader
 import coil.decode.SvgDecoder
 import coil.load
-import coil.size.Scale
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -22,7 +22,7 @@ import javax.net.ssl.HttpsURLConnection
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -42,7 +42,9 @@ class MainActivity : AppCompatActivity() {
 
         etTicker.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                // Você pode deixar vazio se não precisar fazer nada aqui
+                if (s.toString().isEmpty()) {
+                    Toast.makeText(this@MainActivity, "Digite corretamente o ticker do ativo que deseja visualizar.", Toast.LENGTH_SHORT).show()
+                }
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -74,16 +76,15 @@ class MainActivity : AppCompatActivity() {
                         runOnUiThread {
                             tvShortName.text = "Nome curto: $shortName"
                             tvCurrency.text = "Moeda: $currency"
-                            tvMarketPrice.text = "Preço atual: R$ $marketPrice"
-                            tvMarketPreviousClose.text = "Fechamento anterior: R$ $marketPreviousClose"
-                            tvMarketChange.text = "Variação absoluta: R$ $marketChange"
-                            tvMarketChangePercent.text = "Variação %: $marketChangePercent %"
-                            tvDayRange.text = "Intervalo do dia: $dayRange"
-                            tvFiftyTwoWeekRange.text = "Intervalo 52 semanas: $fiftyTwoWeekRange"
+                            tvMarketPrice.text = "Preço atual: $currency $marketPrice"
+                            tvMarketPreviousClose.text = "Fechamento anterior: $currency $marketPreviousClose"
+                            tvMarketChange.text = "Variação do dia: $currency $marketChange"
+                            tvMarketChangePercent.text = "Variação (%): $marketChangePercent%"
+                            tvDayRange.text = "Intervalo do dia ($currency): $dayRange"
+                            tvFiftyTwoWeekRange.text = "Intervalo de 52 semanas ($currency): $fiftyTwoWeekRange"
                             ivLogo.load(logoUrl) {
                                 crossfade(true)
                                 decoderFactory(SvgDecoder.Factory())
-                                scale(Scale.FILL) // ou Scale.FIT
                             }
 
                             conn.disconnect()
