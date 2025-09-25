@@ -9,7 +9,9 @@
 ## 📌 Projeto
 Este aplicativo Android, desenvolvido em **Kotlin**, permite consultar **cotações de ativos da B3 e de bolsas internacionais**, consumindo dados em tempo real da **API [brapi.dev](https://brapi.dev/)**.
 
-O app possui um **design moderno e responsivo**, exibindo informações detalhadas como preço atual, moeda, fechamento anterior, variação diária e intervalo de 52 semanas. É ideal para investidores e entusiastas do mercado financeiro que desejam acompanhar ativos de forma prática pelo celular.
+O app possui um **design moderno e responsivo**, exibindo informações detalhadas como preço atual, moeda, fechamento anterior, variação diária (% e moeda) e intervalo de 52 semanas. É ideal para investidores e entusiastas do mercado financeiro que desejam acompanhar ativos de forma prática e diária pelo celular.
+
+A API é capaz de trazer ações, ETFs (nacionais e internacionais), FIIS, dentre outros.
 
 ---
 
@@ -24,10 +26,10 @@ O app possui um **design moderno e responsivo**, exibindo informações detalhad
 - Nome curto do ativo  
 - Moeda de negociação  
 - Preço atual  
-- Fechamento anterior  
-- Variação absoluta e percentual no dia (**verde positivo, vermelho negativo**)  
-- Intervalo diário  
-- Intervalo das últimas 52 semanas  
+- Fechamento anterior (preço)  
+- Variação em moeda e percentual do dia (**verde positivo, vermelho negativo**)  
+- Intervalo diário de preço (mínimo e máximo) 
+- Intervalo do preço das últimas 52 semanas (mínimo e máximo) 
 
 ---
 
@@ -35,11 +37,9 @@ O app possui um **design moderno e responsivo**, exibindo informações detalhad
 
 <p align="center">
    <img width="300" height="600" alt="Tela 1" src="https://github.com/user-attachments/assets/caa47ec3-8d09-4ee3-b41e-0c2a9cd8a99b" />
-   <img width="300" height="600" alt="Tela 2" src="https://github.com/user-attachments/assets/82f80789-77ea-4fed-a5c7-2cc352731abe" />
-   <img width="300" height="600" alt="Tela 3" src="https://github.com/user-attachments/assets/eee5ddb2-ae85-46a7-873d-0bf0b602c73e" />
+   <img width="300" height="600" alt="Tela 2" src="https://github.com/user-attachments/assets/b5720e45-dae4-4c6a-955e-e2bd621790a2" />
+   <img width="300" height="600" alt="Tela 3" src="https://github.com/user-attachments/assets/f6876a76-e821-4a28-a196-1b11e81fb884" />
 </p>
-
----
 
 ## ✨ Funcionalidades
 | Funcionalidade        | Descrição |
@@ -51,6 +51,7 @@ O app possui um **design moderno e responsivo**, exibindo informações detalhad
 | Variação de Preço      | Cor verde para positivo e vermelho para negativo |
 | UI Responsiva          | Layout adaptado para diferentes tamanhos de tela |
 | Edge-to-Edge           | Uso completo da tela, status bar transparente |
+! Toast                  | Informa ao usuário para digitar corretamente o ticker, e informa quando está sem conexão com a rede
 | ScrollView             | Permite rolagem caso a tela ultrapasse o limite visível |
 
 ---
@@ -61,7 +62,7 @@ O app possui um **design moderno e responsivo**, exibindo informações detalhad
 3. As informações são exibidas em um **layout limpo e responsivo**.  
 4. A logo do ativo é carregada automaticamente no topo.
 
-### Exemplos de Tickers para teste:
+### Exemplos de Tickers para teste sem utilização de token:
 - PETR4 (Petrobras PN)  
 - VALE3 (Vale ON)  
 - AAPL (Apple - Nasdaq)  
@@ -98,9 +99,6 @@ O app possui um **design moderno e responsivo**, exibindo informações detalhad
 - Focado em integração de APIs, UI/UX e aplicativos financeiros  
 
 ---
-
-## 📜 Licença
-Este projeto está licenciado sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
 ## 📜 Licença
 Este projeto está licenciado sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
