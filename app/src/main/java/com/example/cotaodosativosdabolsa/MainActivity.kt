@@ -1,7 +1,9 @@
 package com.example.cotaodosativosdabolsa
 
+import android.content.Context
 import android.graphics.Color
 import android.graphics.Insets.add
+import android.net.ConnectivityManager
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -61,6 +63,14 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun afterTextChanged(s: Editable?) {
+                val cm = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+                val activeNetwork = cm.activeNetworkInfo
+                val isConnected = activeNetwork?.isConnectedOrConnecting == true
+
+                if (!isConnected) {
+                    Toast.makeText(this@MainActivity, "Sem conexão com a internet.", Toast.LENGTH_SHORT).show()
+                }
+
                 CoroutineScope(Dispatchers.IO).launch {
                     try {
                         val url = URL("https://brapi.dev/api/quote/$ticker?token=$token")
@@ -95,10 +105,6 @@ class MainActivity : AppCompatActivity() {
                             ivLogo.load(logoUrl) {
                                 crossfade(true)
                                 decoderFactory(SvgDecoder.Factory())
-                            }
-
-                            if (conn.responseCode != 200) {
-                                Toast.makeText(this@MainActivity, "Erro ao obter dados do ativo: verifique conexão à internet.", Toast.LENGTH_SHORT).show()
                             }
 
                             conn.disconnect()
