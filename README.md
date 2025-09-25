@@ -9,7 +9,7 @@
 ## 📌 Projeto
 Este aplicativo Android, desenvolvido em **Kotlin** e **XML**, permite consultar **cotações de ativos da B3 e de bolsas internacionais**, consumindo dados em tempo real da **API [brapi.dev](https://brapi.dev/)**.
 
-O app possui um **design moderno e responsivo**, exibindo informações detalhadas como preço atual, moeda, fechamento anterior (moeda), variação diária (porcentagem e moeda) e intervalo do dia (porcentagem e moeda) intervalo de 52 semanas (porcentagem e moeda). É ideal para investidores e entusiastas do mercado financeiro que desejam acompanhar ativos de forma prática e diária pelo celular.
+O app possui um **design moderno e responsivo**, exibindo informações detalhadas como preço atual, moeda, fechamento anterior (moeda), variação diária (porcentagem e moeda) e intervalo do dia (porcentagem e moeda) intervalo de 52 semanas (porcentagem e moeda). É ideal para **investidores e entusiastas do mercado financeiro** que desejam acompanhar ativos de forma **prática e diária** pelo celular.
 
 Eu, particularmentre, pretendo utilizá-lo diariamente para a realização de avaliação de ativos que possuo na minha **carteira de investimentos**. Portanto, caso venha a utilizá-lo de maneira **frequente**, peço, por gentileza, que crie uma conta na **brapi** e gere seu próprio **token** e o insira na variável de mesmo nome, uma vez que é limitada a **15.000** requisiçoes **GET** por mês. 
 
