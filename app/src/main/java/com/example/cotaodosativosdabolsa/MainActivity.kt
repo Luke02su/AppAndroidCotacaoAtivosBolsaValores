@@ -2,7 +2,6 @@ package com.example.cotaodosativosdabolsa
 
 import android.content.Context
 import android.graphics.Color
-import android.graphics.Insets.add
 import android.net.ConnectivityManager
 import android.os.Bundle
 import android.text.Editable
