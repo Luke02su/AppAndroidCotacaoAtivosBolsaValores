@@ -53,7 +53,7 @@ E, para se obter mais informações ao realizar a consulta, como **dividend yiel
 | Variação de Preço      | Cor verde para positivo e vermelho para negativo |
 | UI Responsiva          | Layout adaptado para diferentes tamanhos de tela |
 | Edge-to-Edge           | Uso completo da tela, status bar transparente |
-! Toast                  | Informa ao usuário para digitar corretamente o ticker, e informa quando está sem conexão com a rede
+| Toast                  | Informa ao usuário para digitar corretamente o ticker e informa quando está sem conexão com a rede
 | ScrollView             | Permite rolagem caso a tela ultrapasse o limite visível |
 
 ---
