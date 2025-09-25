@@ -25,9 +25,7 @@ import javax.net.ssl.HttpsURLConnection
 
 private lateinit var tvMarketChange: TextView
 private lateinit var tvMarketChangePercent: TextView
-
 private var marketChange = 0.00
-
 private var marketChangePercent = 0.00
 
 class MainActivity : AppCompatActivity() {
@@ -119,7 +117,7 @@ class MainActivity : AppCompatActivity() {
 }
 
 private fun changeColorVariation() {
-    if (marketChange > 0 && marketChangePercent > 0.00) {
+    if (marketChange > 0.00 && marketChangePercent > 0.00) {
         tvMarketChange.setTextColor(Color.parseColor("#2E7D32"))
         tvMarketChangePercent.setTextColor(Color.parseColor("#2E7D32"))
     } else {
