@@ -7,11 +7,13 @@
 ---
 
 ## 📌 Projeto
-Este aplicativo Android, desenvolvido em **Kotlin**, permite consultar **cotações de ativos da B3 e de bolsas internacionais**, consumindo dados em tempo real da **API [brapi.dev](https://brapi.dev/)**.
+Este aplicativo Android, desenvolvido em **Kotlin** e **XML**, permite consultar **cotações de ativos da B3 e de bolsas internacionais**, consumindo dados em tempo real da **API [brapi.dev](https://brapi.dev/)**.
 
-O app possui um **design moderno e responsivo**, exibindo informações detalhadas como preço atual, moeda, fechamento anterior, variação diária (% e moeda) e intervalo de 52 semanas. É ideal para investidores e entusiastas do mercado financeiro que desejam acompanhar ativos de forma prática e diária pelo celular.
+O app possui um **design moderno e responsivo**, exibindo informações detalhadas como preço atual, moeda, fechamento anterior (moeda), variação diária (porcentagem e moeda) e intervalo do dia (porcentagem e moeda) intervalo de 52 semanas (porcentagem e moeda). É ideal para investidores e entusiastas do mercado financeiro que desejam acompanhar ativos de forma prática e diária pelo celular.
 
-A API é capaz de trazer ações, ETFs (nacionais e internacionais), FIIS, dentre outros.
+Eu, particularmentre, pretendo utilizá-lo diariamente para a realização de avaliação de ativos que possuo na minha **carteira de investimentos**. Portanto, caso venha a utilizá-lo de maneira **frequente**, peço, por gentileza, que crie uma conta na **brapi** e gere seu próprio **token** e o insira na variável de mesmo nome, uma vez que é limitada a **15.000** requisiçoes **GET** por mês. 
+
+E, para se obter mais informações ao realizar a consulta, como **dividend yield**, dentre outras, faz-se necessário assinar outros planos pagos.
 
 ---
 
@@ -19,8 +21,8 @@ A API é capaz de trazer ações, ETFs (nacionais e internacionais), FIIS, dentr
 
 ### Tela Principal
 - **Campo de entrada (EditText):** digite o ticker do ativo (até 6 caracteres, automaticamente em maiúsculas).  
-- **Logo do ativo:** carregada automaticamente via URL (suporte a SVG usando Coil).  
-- **Caixa de informações:** apresenta os principais dados do ativo pesquisado.
+- **Logo do ativo (ImageView):** carregada automaticamente via URL (suporte a SVG usando Coil).  
+- **Caixa de informações (TextView):** apresenta os principais dados do ativo pesquisado.
 
 ### Informações exibidas
 - Nome curto do ativo  
@@ -36,7 +38,7 @@ A API é capaz de trazer ações, ETFs (nacionais e internacionais), FIIS, dentr
 ## 📱 Prints da Tela
 
 <p align="center">
-   <img width="300" height="600" alt="Tela 1" src="https://github.com/user-attachments/assets/caa47ec3-8d09-4ee3-b41e-0c2a9cd8a99b" />
+   <img width="300" height="600" alt="Tela 1" src="https://github.com/user-attachments/assets/ae69663d-cdee-4d96-b72e-655674248594" />
    <img width="300" height="600" alt="Tela 2" src="https://github.com/user-attachments/assets/b5720e45-dae4-4c6a-955e-e2bd621790a2" />
    <img width="300" height="600" alt="Tela 3" src="https://github.com/user-attachments/assets/f6876a76-e821-4a28-a196-1b11e81fb884" />
 </p>
